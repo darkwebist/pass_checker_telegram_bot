@@ -24,7 +24,7 @@ Yaratuvchi: **@DarkWebist** | Kanal: **@V1RU5_team**
    pip install aiogram
 ```
 
-1. BOT_TOKEN va ADMIN_ID ni sozlang.
+3. BOT_TOKEN va ADMIN_ID ni sozlang.
 
 ---
 
