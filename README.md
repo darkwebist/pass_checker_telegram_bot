@@ -1,75 +1,51 @@
 
-# 🔐 KiberXavfsizlik Bot
+# 🔐 Parol Tekshiruvchi Bot
 
-<p align="center">
-  <img src="https://via.placeholder.com/150?text=%F0%9F%94%90" alt="Logo" width="150"/>
-</p>
-
-<p align="center">
-  <b>Telegram bot · Parol kuchini baholash · Social Engineering</b><br>
-  <code>Yaratuvchi: @DarkWebist</code> | <code>Kanal: @V1RU5_team</code>
-</p>
+Parol kuchini tahlil qiluvchi, brute-force buzish vaqtini hisoblovchi va foydalanuvchilarga tavsiyalar beruvchi Telegram bot.  
+Yaratuvchi: **@DarkWebist** | Kanal: **@V1RU5_team**
 
 ---
 
-## 📋 Mundarija
-- [Imkoniyatlar](#imkoniyatlar)
-- [O‘rnatish](#o‘rnatish)
-- [Sozlash](#sozlash)
-- [Ishga tushirish](#ishga-tushirish)
-- [Foydalanish](#foydalanish)
-- [Ma’lumotlar bazasi](#ma’lumotlar-bazasi)
-- [Xavfsizlik](#xavfsizlik)
-- [Admin panel](#admin-panel)
-- [Bog‘lanish](#bog‘lanish)
+## ✨ Asosiy imkoniyatlar
+
+- **Parol kuchini baholash** – zaif, o‘rtacha yoki kuchli.
+- **Buzish vaqti** – 10 mlrd/s tezlikda hisoblanadi.
+- **Maslahatlar** – parolni yaxshilash bo‘yicha aniq tavsiyalar.
+- **Statistika** – foydalanuvchi tekshiruvlar tarixi.
+- **Admin panel** – barcha tekshiruvlar va foydalanuvchilar ro‘yxati.
 
 ---
 
-## 🚀 Imkoniyatlar
-- 🔍 **Parol kuchini aniqlash** — zaif, o‘rtacha, kuchli deb baholaydi.
-- ⏱️ **Brute-force buzish vaqtini hisoblash** — soniyalardan milliard yillargacha.
-- 📊 **Statistika** — foydalanuvchi shaxsiy tekshiruvlar tarixi.
-- 👑 **Admin panel** — barcha tekshirilgan parollarni va foydalanuvchilarni ko‘rish.
-- 📝 **Maslahatlar** — parolni yaxshilash bo‘yicha aniq tavsiyalar.
-- 🔐 **SQLite bazasi** — tekshiruvlar va foydalanuvchilar saqlanadi.
+## 🛠 O‘rnatish
 
-## ⚙️ O‘rnatish
-
-### Talablar
-- Python 3.10+
-- `pip` paket menejeri
-
-### 1. Repozitoriyani yuklab oling
-```bash
-git clone <repo-link> && cd <project-folder>
+1. Repozitoriyani yuklab oling yoki kodni nusxalang.
+2. Kerakli kutubxonani o‘rnating:
+   ```bash
+   pip install aiogram
 ```
 
-yoki kodni qo‘lda nusxalang.
+1. BOT_TOKEN va ADMIN_ID ni sozlang.
 
-2. Kutubxonalarni o‘rnating
+---
 
-```bash
-pip install aiogram
-```
+⚙️ Sozlash
 
-sqlite3, asyncio, re, datetime standart kutubxonada mavjud.
-
-🔧 Sozlash
-
-bot.py ichida ikkita o‘zgaruvchini o‘zgartiring:
+bot.py faylida quyidagi ikkita o‘zgaruvchini o‘zgartiring:
 
 ```python
-BOT_TOKEN = "SIZNING_BOT_TOKENINGIZ"     # @BotFather dan oling
-ADMIN_ID = 123456789                      # Admin Telegram ID raqamingiz
+BOT_TOKEN = "123456:ABC-DEF1234gh"  # @BotFather dan olingan token
+ADMIN_ID = 12345678                 # Adminning Telegram ID raqami
 ```
 
-▶️ Ishga tushirish
+---
+
+🚀 Ishga tushirish
 
 ```bash
 python bot.py
 ```
 
-Terminalda quyidagi chiqadi:
+Terminalda quyidagi holat ko‘rinadi:
 
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -80,36 +56,49 @@ Terminalda quyidagi chiqadi:
 [✓] Tizim onlayn. Kuting...
 ```
 
+---
+
 📱 Foydalanish
 
-Tugma Tavsif
-🔐 Parol Tekshirish Parol kuchini va buzish vaqtini ko‘rsatadi
-📊 Mening Statistikam Shaxsiy tekshiruvlar tarixi (oxirgi 10 ta)
-ℹ️ Yordam Qo‘llanma va kuchli parol qoidalari
-👑 Admin Panel faqat ADMIN_ID uchun – to‘liq loglar va statistika
+Tugma Vazifasi
+🔐 Parol Tekshirish Parol yuboriladi, kuchi va buzish vaqti ko‘rsatiladi
+📊 Statistikam O‘zingizning oxirgi 10 ta tekshiruvingiz
+ℹ️ Yordam Kuchli parol yaratish qoidalari
 
-Admin panelida har bir foydalanuvchi, kiritilgan parol, kuch darajasi va vaqt to‘liq ko‘rinadi.
+Admin foydalanuvchilari qo‘shimcha 👑 Admin Panel tugmasini ko‘radi.
 
-🗄️ Ma’lumotlar bazasi
+---
 
-Bot ishga tushganda avtomatik bot_database.db yaratadi:
+👑 Admin panel
 
-· users – foydalanuvchilar (user_id, username, first_name, joined_at)
-· checks_log – barcha tekshiruvlar (id, user_id, username, password, strength_result, crack_time, check_time)
+Admin panelida quyidagilar aks etadi:
 
-Parollar ochiq holda saqlanadi – admin ularni ko‘ra oladi.
+· Umumiy foydalanuvchilar soni
+· Jami tekshiruvlar soni
+· Har bir foydalanuvchi, kiritilgan parol, kuch darajasi va buzish vaqti
 
-🛡️ Xavfsizlik
+Parollar ma’lumotlar bazasida ochiq holda saqlanadi.
 
-· Parol hech qanday tashqi serverga yuborilmaydi, lokal bazada qoladi.
-· Baza fayli bot joylashgan papkada (bot_database.db) saqlanadi – uni himoya qilish adminning vazifasi.
-· Bot logikasi password o‘zgaruvchisini to‘g‘ridan-to‘g‘ri qayta ishlaydi, manipulyatsiyaga moyil bo‘lmasligi uchun kod kiritish tekshirilmaydi.
+---
+
+🗄 Ma’lumotlar bazasi
+
+Bot avtomatik bot_database.db faylini yaratadi va ichida ikkita jadval mavjud:
+
+· users – foydalanuvchi ID, username, ism, qo‘shilgan vaqti
+· checks_log – foydalanuvchi ID, parol, natija, buzish vaqti, tekshiruv vaqti
+
+---
+
+⚠️ Xavfsizlik va javobgarlik
+
+· Parollar lokal saqlanadi, tashqi serverga yuborilmaydi.
+· Kod social engineering maqsadida yozilgan – javobgarlik butunlay foydalanuvchiga tegishli.
+
+---
 
 📡 Bog‘lanish
 
 · Yaratuvchi: @DarkWebist
-· Rasmiy kanal: @V1RU5_team
+· Kanal: @V1RU5_team
 
----
-
-Bu kod social engineering maqsadlarida yozilgan. Barcha javobgarlik foydalanuvchida.
