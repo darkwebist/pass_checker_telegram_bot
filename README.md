@@ -21,8 +21,8 @@ Yaratuvchi: **@DarkWebist** | Kanal: **@V1RU5_team**
 1. Repozitoriyani yuklab oling yoki kodni nusxalang.
 2. Kerakli kutubxonani o‘rnating:
    ```bash
-   pip install aiogram
-```
+   pip install aiogram```
+
 3. BOT_TOKEN va ADMIN_ID ni sozlang.
 
 ---
