@@ -23,7 +23,6 @@ Yaratuvchi: **@DarkWebist** | Kanal: **@V1RU5_team**
    ```bash
    pip install aiogram
 ```
-
 3. BOT_TOKEN va ADMIN_ID ni sozlang.
 
 ---
@@ -34,8 +33,7 @@ bot.py faylida quyidagi ikkita o‘zgaruvchini o‘zgartiring:
 
 ```python
 BOT_TOKEN = "123456:ABC-DEF1234gh"  # @BotFather dan olingan token
-ADMIN_ID = 12345678                 # Adminning Telegram ID raqami
-```
+ADMIN_ID = 12345678                 # Adminning Telegram ID raqami```
 
 ---
 
